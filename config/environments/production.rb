@@ -63,6 +63,19 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "test_volt_blog_#{Rails.env}"
 
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_caching = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :port           => 25,
+    :address        => 'smtp.mailgun.org',
+    :user_name      => 'test@example.com',
+    :password       => 'password',
+    :domain         => 'test.herokuapp.com',
+    :authentication => :plain
+  }
+
+
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.
