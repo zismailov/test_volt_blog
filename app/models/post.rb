@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  has_many :comments, dependent: :destroy
   belongs_to :author, class_name: "User", validate: true
 
   before_create :set_published_at
