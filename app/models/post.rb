@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  belongs_to :author, class_name: "User", validate: true
+  
   before_create :set_published_at
 
   validates :author, :title, :body, presence: true
