@@ -15,7 +15,7 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def create
-    resource = @current_user.posts.create(resource_params)
+    resource = @current_user.posts.build(resource_params)
 
     if resource.valid?
       render json: trimmer(resource).to_json, status: :created
