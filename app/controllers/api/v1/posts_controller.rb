@@ -32,6 +32,7 @@ class Api::V1::PostsController < ApplicationController
 
   def trimmer(resource)
     outhash = resource.as_json
+    outhash["published_at"] = resource["published_at"].strftime("%Y-%m-%d %H:%M")
     outhash["author"] = resource.author.nickname
     outhash.delete("author_id")
     outhash

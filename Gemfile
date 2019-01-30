@@ -51,8 +51,10 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem "aws-sdk"
 gem "devise"
 gem "faker"
 gem "jwt"
+gem "paperclip"
 gem "rack-cors", require: "rack/cors"
 gem "sidekiq"
