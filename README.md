@@ -1,24 +1,37 @@
-# README
+# Usage
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Login:
 
-Things you may want to cover:
+```
+$ curl -X POST -d email="email@example.com" -d password="password" http://localhost:3000/auth_user
+```
 
-* Ruby version
+Gets:
 
-* System dependencies
+```
+{"auth_token":"...","user":{"id":1,"email":"email@example.com"}}
+```
 
-* Configuration
+### Create new post:
 
-* Database creation
+```
+$ curl -X POST -d "title=titlevalue&body=bodyvalue&published_at=2019-10-20 11:11:11" --header "Authorization: Bearer ..." http://localhost:3000/api/v1/posts.json
+```
 
-* Database initialization
+### Get post by id:
 
-* How to run the test suite
+```
+$ curl -X GET --header "Authorization: Bearer ..." http://localhost:3000/api/v1/posts/21.json
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### Show posts:
 
-* Deployment instructions
+```
+$ curl -X GET --header "Authorization: Bearer ..." http://localhost:3000/api/v1/posts.json -d page=2 -d per_page=5
+```
 
-* ...
+### Generate report:
+
+```
+$ curl -X POST -d email="email@example.com" -d start_date="2019-11-11" -d end_date="2020-11-11" --header "Authorization: Bearer ..." http://localhost:3000/api/v1/reports/by_author.json
+```
