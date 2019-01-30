@@ -54,4 +54,5 @@ end
 gem "devise"
 gem "faker"
 gem "jwt"
+gem "rack-cors", require: "rack/cors"
 gem "sidekiq"

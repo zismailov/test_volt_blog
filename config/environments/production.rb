@@ -67,14 +67,13 @@ Rails.application.configure do
   config.action_mailer.perform_caching = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :port           => 25,
-    :address        => 'smtp.mailgun.org',
-    :user_name      => 'test@example.com',
-    :password       => 'password',
-    :domain         => 'test.herokuapp.com',
-    :authentication => :plain
+    port: 25,
+    address: "smtp.mailgun.org",
+    user_name: "test@example.com",
+    password: "password",
+    domain: "test.herokuapp.com",
+    authentication: :plain
   }
-
 
   config.action_mailer.perform_caching = false
 

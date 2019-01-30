@@ -17,5 +17,12 @@ module TestVoltBlog
     # the framework and any gems in your application.
     config.active_job.queue_adapter = :sidekiq
     config.eager_load_paths += ["#{config.root}/app/validators/"]
+
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins "*"
+        resource "*", headers: :any, methods: %i[get post options]
+      end
+    end
   end
 end
