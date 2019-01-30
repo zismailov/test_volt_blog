@@ -5,4 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts, foreign_key: 'author_id', dependent: :destroy
+
+  validates :nickname, :password, :email, presence: true
+  validates :email, email: true
+  validates :email, uniqueness: true
+  validates :password, length: { minimum: 6 }
 end
