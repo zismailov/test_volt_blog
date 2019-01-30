@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable
 
-  has_many :posts, foreign_key: "author_id", dependent: :destroy, inverse_of: :user
-  has_many :comments, foreign_key: "author_id", dependent: :destroy, inverse_of: :user
+  has_many :posts, foreign_key: "author_id", dependent: :destroy
+  has_many :comments, foreign_key: "author_id", dependent: :destroy
 
   validates :nickname, :password, :email, presence: true
   validates :email, email: true
